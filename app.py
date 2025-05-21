@@ -15,5 +15,9 @@ def manage_users():
         user_id = request.args.get('id')
         if user_id in users:
             del users[user_id]
+            # Remove user's borrowed books
+            for tx in list(transactions):
+                if tx['user_id'] == user_id:
+                    transactions.remove(tx)
             return '', 204
         return 'User not found', 404
