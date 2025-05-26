@@ -5,3 +5,34 @@
     <button onclick="addUser()">Add User</button>
     <ul id="userList"></ul>
 </div>
+<script>
+    // User Authentication
+async function loginUser() {
+    const name = document.getElementById('loginName').value.trim();
+    if (!name) return alert('Enter your name');
+    await fetch('/login', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name})
+    });
+    checkLogin();
+}
+
+async function logoutUser() {
+    await fetch('/logout', {method: 'POST'});
+    checkLogin();
+}
+
+async function checkLogin() {
+    const response = await fetch('/session');
+    const data = await response.json();
+    if (data.logged_in) {
+        document.getElementById('loginSection').style.display = 'none';
+        document.getElementById('mainSection').style.display = '';
+    } else {
+        document.getElementById('loginSection').style.display = '';
+        document.getElementById('mainSection').style.display = 'none';
+    }
+}
+
+</script>
