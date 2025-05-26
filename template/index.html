@@ -34,5 +34,25 @@ async function checkLogin() {
         document.getElementById('mainSection').style.display = 'none';
     }
 }
+// User Management
+async function addUser() {
+    const name = document.getElementById('userName').value;
+    await fetch('/users', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({name})
+    });
+    fetchUsers();
+}
+
+async function fetchUsers() {
+    const res = await fetch('/users');
+    const users = await res.json();
+    const userList = document.getElementById('userList');
+    userList.innerHTML = '';
+    users.forEach(u => {
+        userList.innerHTML += `<li>${u.name}</li>`;
+    });
+}
 
 </script>
