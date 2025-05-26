@@ -1,5 +1,5 @@
 # --- User Management ---
-@app.route('/users', methods=['GET', 'POST', 'DELETE'])
+@app.route('/users/<user_id>', methods=['GET', 'POST', 'DELETE'])
 def manage_users():
     if request.method == 'GET':
         return jsonify(list(users.values()))
@@ -21,3 +21,5 @@ def manage_users():
                     transactions.remove(tx)
             return '', 204
         return 'User not found', 404
+def delete_user(user_id):
+    if user_id in users:
