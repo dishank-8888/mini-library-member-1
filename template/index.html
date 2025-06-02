@@ -55,13 +55,9 @@ async function fetchUsers() {
     const userList = document.getElementById('userList');
     userList.innerHTML = '';
     users.forEach(u => {
-        // In fetchUsers():
-users.forEach(u => {
-    const li = document.createElement('li');
-    li.textContent = u.name;  // Safe text injection
-    userList.appendChild(li);
-});
-
+        const li = document.createElement('li');
+        li.textContent = u.name;  // Safe text injection
+        userList.appendChild(li);
     });
 }
 
