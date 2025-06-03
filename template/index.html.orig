@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD
 <!-- Borrow/Return Panel -->
 <div class="panel">
     <h2>Borrow/Return</h2>
@@ -141,7 +141,7 @@ async function fetchTransactions() {
 </html>
 
 <!-- User Panel -->
-
+>>>>>>> 831be4fbd2bf6d53b600cf21220f9b63d74c1d27
 <div class="panel">
     <h2>Users</h2>
     <input type="text" id="userName" placeholder="Enter user name">

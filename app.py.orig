@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD
 from datetime import datetime
 
 # --- Borrow/Return ---
@@ -57,7 +57,10 @@ def user_borrowed_books():
                 else:
                     book['cover_url'] = ''
                 borrowed.append(book)
-    return jsonify(borrowe
+    return jsonify(borrowed)
+
+
+=======
 
 from flask import Flask, render_template, send_from_directory
 import os
@@ -115,7 +118,7 @@ def list_books():
     if 'user_id' not in session:
         return jsonify({'status':'error', 'message':'Login required'}), 401
     return jsonify({'books': list(books.values())})
-
+>>>>>>> 831be4fbd2bf6d53b600cf21220f9b63d74c1d27
 # --- User Management ---
 
 
